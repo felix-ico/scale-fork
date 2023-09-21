@@ -84,6 +84,7 @@ export class Button {
   }
 
   componentDidLoad() {
+    console.log('FORKED REPO');
     this.setChildrenIconSize();
   }
 
