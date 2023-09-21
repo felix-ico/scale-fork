@@ -94,16 +94,6 @@ const getClassName = (classList, newProps, oldProps) => {
     return finalClassNames.join(' ');
 };
 /**
- * Transforms a React event name to a browser event name.
- */
-const transformReactEventName = (eventNameSuffix) => {
-    switch (eventNameSuffix) {
-        case 'doubleclick':
-            return 'dblclick';
-    }
-    return eventNameSuffix;
-};
-/**
  * Checks if an event is supported in the current execution environment.
  * @license Modernizr 3.0.0pre (Custom Build) | MIT
  */
@@ -112,7 +102,7 @@ const isCoveredByReact = (eventNameSuffix) => {
         return true;
     }
     else {
-        const eventName = 'on' + transformReactEventName(eventNameSuffix);
+        const eventName = 'on' + eventNameSuffix;
         let isSupported = eventName in document;
         if (!isSupported) {
             const element = document.createElement('div');
@@ -153,7 +143,7 @@ const setRef = (ref, value) => {
 };
 const mergeRefs = (...refs) => {
     return (value) => {
-        refs.forEach((ref) => {
+        refs.forEach(ref => {
             setRef(ref, value);
         });
     };
