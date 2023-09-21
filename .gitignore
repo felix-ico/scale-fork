@@ -1,7 +1,6 @@
 .DS_Store
 .idea
 node_modules
-dist/
 lerna-debug.log
 report/
 # Needed to avoid a nasty error while trying to build components-angular
